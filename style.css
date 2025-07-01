@@ -1,0 +1,268 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+ES:wght@100..400&display=swap');
+
+*{
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+body{
+   font-family: "Playwrite ES", cursive;
+}
+
+.navbar{
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    position: relative; /* Ajouté pour positionner l'icône du panier */
+}
+.logo img{
+    width: 75px;
+}
+
+nav{
+    flex: 1;
+    text-align: right;
+}
+nav ul{
+     display: inline-block;
+     list-style-type: none;
+}
+
+nav ul li{
+    display: inline-block;
+    margin-right: 20px;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: #555;
+    font-weight: bold;
+}
+
+.container{
+    max-width: 1200px;
+    margin: 20px auto;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.row{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.col-2{
+    flex-basis: 50%;
+    min-width: 300px;
+}
+.col-2 img{
+    width: 100%;
+    padding: 30px 0;
+}
+
+.col-2 h1{
+    font-size: 40px;
+    line-height: 60px;
+    margin: 25px 0;
+    color: #333;
+}
+
+p{
+    color: #555;
+}
+
+.col-2 a{
+    display: inline-block;
+    text-decoration: none;
+    padding: 10px 30px;
+    color: #fff;
+    background: rgb(9, 120, 225);
+     border-radius: 30px;
+     margin-top: 25px;
+     transition: background 0.5s;
+}
+
+.col-2 a:hover{
+    background: #044d65;
+}
+
+.header-section{
+    margin-top: -25px;
+    background: radial-gradient(#fff, #cbd7e6);
+}
+
+/* style de la section categorie */
+
+.categories{
+    margin: 70px 0;
+}
+.col-3{
+    flex-basis: 30%;
+    min-width: 250px;
+    margin-bottom: 30px;
+    transition: transform 0.4s;
+}
+
+.col-3 img{
+    width: 100%;
+    border-radius: 5px;
+}
+.col-3:hover {
+    transform: translateY(-10px);
+}
+
+.container h2{
+    text-align: center;
+    font-size: 2.2rem;
+    color: #444;
+    margin: 50px 0;
+    position: relative;
+    line-height: 60px;
+}
+.container h2::after{
+    content: '';
+    background: #08789d;
+    width: 80px;
+    height: 5px;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.col-4{
+     flex-basis: 22%;
+     min-width: 250px;
+     padding: 10px;
+     margin-bottom: 50px;
+     transition: transform 0.4s;
+     text-align: center;
+}
+.col-4 img{
+    width: 100%;
+    border-radius: 5px;
+}
+
+.col-4:hover{
+    transform: translateY(-10px);
+}
+
+.col-4 h3 {
+    font-weight: normal;
+    color: #333;
+    margin: 10px 0;
+}
+
+.col-4 p {
+    font-size: 14px;
+}
+
+.rating .fa{
+    color: #08789d;
+}
+
+/* Styles pour les icônes de menu mobile et panier */
+.navbar .fa {
+    display: none; /* Cache par défaut sur les grands écrans */
+    font-size: 24px;
+    cursor: pointer;
+    color: #555;
+    margin-left: 20px; /* Espacement entre l'icône du panier et le menu burger */
+}
+
+.fa-shopping-cart {
+    display: inline-block; /* S'assure que l'icône du panier est toujours visible dans la barre de navigation */
+    margin-left: auto; /* Pousse l'icône du panier à droite */
+}
+
+
+/* Media Query pour la réactivité */
+@media only screen and (max-width: 800px) {
+    .navbar nav ul {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        background: #333;
+        width: 100%;
+        overflow: hidden;
+        transition: max-height 0.5s;
+        max-height: 0; /* Pour cacher le menu par défaut */
+        z-index: 1000; /* Assure que le menu est au-dessus des autres contenus */
+    }
+    .navbar nav ul li {
+        display: block;
+        margin: 10px 50px; /* Ajusté l'espacement */
+        text-align: left; /* Alignement du texte à gauche pour le menu déroulant */
+    }
+    .navbar nav ul li a {
+        color: #fff;
+    }
+    .col-2 {
+        flex-basis: 100%;
+        text-align: center;
+    }
+    .col-2 h1 {
+        font-size: 30px;
+        line-height: 40px;
+    }
+    .col-3, .col-4 {
+        flex-basis: 48%; /* Deux colonnes sur les écrans de taille moyenne */
+    }
+    .container h2 {
+        font-size: 1.8rem;
+    }
+
+    /* Affiche l'icône du menu burger et cache l'icône du panier par défaut */
+    .navbar .fa-bars {
+        display: block;
+    }
+    .navbar .fa-shopping-cart {
+        display: none; /* Cache le panier dans le menu burger, on le gèrera via JS si nécessaire */
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .col-3, .col-4 {
+        flex-basis: 100%; /* Une seule colonne sur très petits écrans */
+    }
+    .col-2 img {
+        padding: 0;
+    }
+    .navbar nav ul {
+        top: 60px; /* Ajuste la position du menu pour les très petits écrans */
+    }
+}
+
+/* Styles pour les icônes de fermeture et d'ouverture du menu (Font Awesome) */
+.fa-times {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 30px;
+    color: #fff;
+    cursor: pointer;
+    display: none; /* Caché par défaut */
+}
+
+/* Afficher l'icône de fermeture lorsque le menu est ouvert (via JS) */
+.navbar.menu-open .fa-times {
+    display: block;
+}
+
+/* Cache l'icône burger lorsque le menu est ouvert */
+.navbar.menu-open .fa-bars {
+    display: none;
+}
+
+/* Afficher le panier mobile si vous voulez qu'il apparaisse même quand le menu est ouvert */
+.navbar.menu-open .fa-shopping-cart {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 70px; /* Ajustez la position par rapport à l'icône de fermeture */
+    color: #fff;
+}
